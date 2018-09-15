@@ -6,7 +6,7 @@ import cat.nyaa.nyaacore.component.NyaaComponent;
 import cat.nyaa.nyaacore.utils.IPCUtils;
 import cat.nyaa.ourtown.spawn.SpawnConfig;
 import cat.nyaa.ourtown.spawn.SpawnLocation;
-import com.earth2me.essentials.Essentials;
+//import com.earth2me.essentials.Essentials;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
@@ -19,7 +19,7 @@ public final class OurTown extends JavaPlugin {
     public static OurTown instance;
     public Configuration config;
     public I18n i18n;
-    public Essentials ess;
+    //public Essentials ess;
     private CommandHandler commandHandler;
     private EventListener eventListener;
     private AutoSave autoSave;
@@ -36,7 +36,7 @@ public final class OurTown extends JavaPlugin {
         getCommand("town").setExecutor(commandHandler);
         getCommand("town").setTabCompleter(commandHandler);
         eventListener = new EventListener(this);
-        ess = (Essentials) getServer().getPluginManager().getPlugin("Essentials");
+        //ess = (Essentials) getServer().getPluginManager().getPlugin("Essentials");
         autoSave = new AutoSave(this);
         try {
             systemBalance = NyaaComponent.get(ISystemBalance.class);
@@ -72,7 +72,8 @@ public final class OurTown extends JavaPlugin {
 
     public void teleport(Player player, SpawnLocation loc) {
         try {
-            ess.getUser(player).getTeleport().now(loc.getLocation(), false, PlayerTeleportEvent.TeleportCause.PLUGIN);
+            //ess.getUser(player).getTeleport().now(loc.getLocation(), false, PlayerTeleportEvent.TeleportCause.PLUGIN);
+            player.teleport(loc.getLocation(), PlayerTeleportEvent.TeleportCause.PLUGIN);
             player.sendMessage(I18n.format("user.teleport", loc.getName()));
         } catch (Exception e) {
             e.printStackTrace();

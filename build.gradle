@@ -7,7 +7,10 @@ targetCompatibility = 1.8
 
 repositories {
     jcenter()
-
+    maven {
+        name 'NyaaCore'
+        url 'https://raw.githubusercontent.com/NyaaCat/NyaaCentral/maven-repo'
+    }
     maven {
         name 'Spigot'
         url 'https://hub.spigotmc.org/nexus/content/groups/public/'
@@ -24,18 +27,8 @@ repositories {
     }
 
     maven {
-        name 'ess-repo'
-        url 'http://repo.ess3.net/content/groups/essentials'
-    }
-
-    maven {
         name 'vault-repo'
         url 'http://nexus.hc.to/content/repositories/pub_releases'
-    }
-
-    maven {
-        name 'NyaaCore'
-        url 'https://raw.githubusercontent.com/NyaaCat/NyaaCore/maven-repo'
     }
 
     maven {
@@ -49,11 +42,8 @@ configurations.all {
 }
 
 dependencies {
-    compile 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT'
-    compile('net.ess3:Essentials:2.13-SNAPSHOT') {
-        transitive = false
-    }
-    compile('cat.nyaa:nyaacore:6.1-SNAPSHOT') {
+    compile 'org.spigotmc:spigot-api:1.13.1-R0.1-SNAPSHOT'
+    compile('cat.nyaa:nyaacore:6.2-SNAPSHOT') {
         transitive = false
     }
     compile 'org.librazy:NyaaUtilsLangChecker:2.0-SNAPSHOT'
